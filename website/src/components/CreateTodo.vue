@@ -11,7 +11,7 @@
                 <div class="col-12 col-md-6">
                     <div class="form-floating mb-3">
                         <select class="form-select" id="todocategory" aria-label="Select Category" name="category_id">
-                            <option selected>None</option>
+                            <option value="0" selected>None</option>
                             <option v-for="category in categories" :key="category.id" :value="category.id">{{ category.name }}</option>
                         </select>
                         <label for="todocategory">Select Category</label>

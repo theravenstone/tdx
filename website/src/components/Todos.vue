@@ -5,11 +5,9 @@
             <li v-for="todo in todos" :key="todo.id" class="list-group-item">
                 <form action="/api/delete_todo.php" class="d-flex justify-content-between">
                     <input type="hidden" :value="todo.id" name="todo_id">
+                    <span>{{ todo.content }}</span>
                     <div>
-                        <span>{{ todo.content }}</span>
-                    </div>
-                    <div>
-                        <div v-if="todo.category_id" class="badge text-black me-2"
+                        <div v-if="todo.category_id" class="badge text-black me-2 align-middle"
                             :style="'background-color: ' + todo.category_color + '50'">
                             <span>{{ todo.category_name }}</span>
                         </div>
