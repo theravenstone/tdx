@@ -11,8 +11,7 @@ $myparams = file_get_contents('php://input');
 $myparams = json_decode($myparams, true);
 
 
-http_response_code(401);
-
+http_response_code(200);
 
 $stmt = $db->prepare('
 SELECT id, name, color FROM categories;
@@ -22,7 +21,6 @@ $stmt->execute();
 
 $categories = [];
 foreach ($stmt as $s){
-    http_response_code(200);
     $category["id"] = $s["id"];
     $category["name"] = $s["name"];
     $category["color"] = $s["color"];

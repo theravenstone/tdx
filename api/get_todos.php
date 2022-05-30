@@ -11,7 +11,7 @@ $myparams = file_get_contents('php://input');
 $myparams = json_decode($myparams, true);
 
 
-http_response_code(401);
+http_response_code(200);
 
 
 $stmt = $db->prepare('
@@ -22,7 +22,6 @@ $stmt->execute();
 
 $todos = [];
 foreach ($stmt as $s){
-    http_response_code(200);
     $todo["id"] = $s["id"];
     $todo["content"] = $s["content"];
     $todo["category_id"] = $s["category_id"];
@@ -37,7 +36,6 @@ foreach ($stmt as $s){
             $todo["category_color"] = $s2["color"];
         }
     }
-
     $todos[] = $todo;
     
 }
