@@ -41,6 +41,9 @@ foreach ($stmt as $s){
     $todos[] = $todo;
     
 }
+if(!$todos){
+    $todos["error"] = 'No Todos in database!';
+}
 
 echo json_encode($todos)
 

@@ -1,17 +1,21 @@
 <template>
   <div class="home mt-5">
-    <ToDoList/>
+      <CreateTodo/>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import ToDoList from '@/components/ToDoList.vue'
+import CreateTodo from '@/components/CreateTodo.vue'
 
 export default {
-  name: 'HomeView',
+  name: 'CreateTodoView',
   components: {
-    ToDoList,
-  }
+    CreateTodo,
+}
 }
 </script>
+
+<style>
+
+</style>
