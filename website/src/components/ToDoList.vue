@@ -1,24 +1,28 @@
 <template>
-    <div class="container mt-3 mx-auto">
-        <h1>ToDo App</h1>
+    <div class="container mt-5 mx-auto">
+        <h1>ToDo App JR</h1>
         <ul class="list-group">
-            <li class="list-group-item">An item</li>
-            <li class="list-group-item">A second item</li>
-            <li class="list-group-item">A third item</li>
-            <li class="list-group-item">A fourth item</li>
-            <li class="list-group-item">And a fifth one</li>
+            <li v-for="todo in todos" :key="todo.id" class="list-group-item d-flex justify-content-between">
+                <span>{{ todo.content }}</span>
+                <span v-if="todo.category_id" class="badge text-black" :style="'background-color: ' + todo.category_color ">{{ todo.category_name }}</span>
+            </li>
         </ul>
     </div>
 </template>
 
 <script>
 export default {
-    data(){
+    data() {
         return {
-            todo: []
+            todos: []
         }
     },
-
+    mounted() {
+        fetch("/api/get_todos.php")
+            .then((res) => res.json())
+            .then((data) => (this.todos = data))
+            .catch((error) => console.log(error.message));
+    },
 }
 </script>
 

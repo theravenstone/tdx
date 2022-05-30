@@ -1,5 +1,5 @@
 <template>
-  <div class="home mt-3">
+  <div class="home mt-5">
     <ToDoList></ToDoList>
   </div>
 </template>
