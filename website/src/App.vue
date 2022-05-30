@@ -1,7 +1,7 @@
 <template>
-  <div class="mt-5 text-center">
-    <h1>{{ $route.name }}</h1>
+  <div class="text-center mx-auto" style="max-width: 768px">
     <Navigation/>
+    <h1 class="display-4">{{ $route.name }}</h1>
     <router-view />
   </div>
 </template>

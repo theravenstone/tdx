@@ -15,7 +15,7 @@ http_response_code(401);
 
 
 $stmt = $db->prepare('
-SELECT id, content, category_id FROM todo_list;
+SELECT id, content, category_id FROM todos;
 ');
 
 $stmt->execute();

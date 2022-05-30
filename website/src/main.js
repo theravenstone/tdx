@@ -5,5 +5,6 @@ import store from './store'
 
 import './assets/css/bootstrap.min.css'
 import './assets/js/bootstrap.bundle.min.js'
+import './assets/js/fontawesome.js'
 
 createApp(App).use(store).use(router).mount('#app')

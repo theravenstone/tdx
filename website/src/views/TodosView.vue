@@ -1,20 +1,16 @@
 <template>
   <div class="mt-5">
-      <CreateTodo/>
+    <Todos/>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import CreateTodo from '@/components/CreateTodo.vue'
+import Todos from '@/components/Todos.vue'
 
 export default {
   components: {
-    CreateTodo,
-}
+    Todos,
+  }
 }
 </script>
-
-<style>
-
-</style>
