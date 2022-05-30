@@ -11,7 +11,7 @@ $myparams = file_get_contents('php://input');
 $myparams = json_decode($myparams, true);
 
 
-http_response_code(401);
+http_response_code(200);
 
 
 $stmt = $db->prepare('
