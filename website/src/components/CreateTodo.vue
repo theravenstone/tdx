@@ -4,15 +4,26 @@
             <div class="row">
                 <div class="col-12 col-md-6">
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="todocontent" placeholder="Buy some food" name="content" required>
+                        <input type="text" class="form-control" id="todocontent" placeholder="Buy some food"
+                            name="content" required>
                         <label for="todocontent">ToDo Content</label>
                     </div>
                 </div>
-                <div class="col-12 col-md-6">
+                <div v-if="categories[0]" class="col-12 col-md-6">
                     <div class="form-floating mb-3">
                         <select class="form-select" id="todocategory" aria-label="Select Category" name="category_id">
                             <option value="0" selected>None</option>
-                            <option v-for="category in categories" :key="category.id" :value="category.id">{{ category.name }}</option>
+                            <option v-for="category in categories" :key="category.id" :value="category.id">{{
+                                    category.name
+                            }}</option>
+                        </select>
+                        <label for="todocategory">Select Category</label>
+                    </div>
+                </div>
+                <div v-else class="col-12 col-md-6">
+                    <div class="form-floating mb-3">
+                        <select class="form-select" id="todocategory" aria-label="Select Category" name="category_id">
+                            <option value="0" selected>None</option>
                         </select>
                         <label for="todocategory">Select Category</label>
                     </div>
@@ -20,7 +31,8 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <button type="submit" class="btn btn-sm btn-success text-right">Create ToDo<i class="fa-solid fa-arrow-right ms-1"></i></button>
+                    <button type="submit" class="btn btn-sm btn-success text-right">Create ToDo<i
+                            class="fa-solid fa-arrow-right ms-1"></i></button>
                 </div>
             </div>
         </form>
