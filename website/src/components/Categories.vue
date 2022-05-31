@@ -2,8 +2,7 @@
     <div class="container mx-auto">
         <ul v-if="categories[0]" class="list-group">
 
-            <li v-for="category in categories" :key="category.id" class="list-group-item" :style="'background-color: ' + category.color + '50' ">
-                <form action="/api/delete_category.php" class="d-flex justify-content-between">
+            <li v-for="category in categories" :key="category.id" class="list-group-item d-flex justify-content-between" :style="'background-color: ' + category.color + '50' ">
                     <input type="hidden" :value="category.id" name="category_id">
                     <div>
                         <span>{{ category.name }}</span>
@@ -12,11 +11,10 @@
                         <router-link :to="'/edit/category/' + category.id" type="submit" class="btn btn-sm btn-primary text-right me-2" title="Edit Category">
                             <i class="fa-solid fa-pen"></i>
                         </router-link>
-                        <button type="submit" class="btn btn-sm btn-danger text-right" title="Delete Category">
+                        <button type="button" @click="this.deleteCategory(category.id)" class="btn btn-sm btn-danger text-right" title="Delete Category">
                             <i class="fa-solid fa-trash"></i>
                         </button>
                     </div>
-                </form>
             </li>
         </ul>
         <div v-else-if="categories.error">
@@ -41,6 +39,20 @@ export default {
             .then((data) => (this.categories = data))
             .catch((error) => console.log(error.message));
     },
+    methods: {
+        deleteCategory(todo_id) {
+            console.log(todo_id + 'delete')
+            fetch("/api/delete_category.php?category_id=" + todo_id)
+                .catch((error) => console.log(error.message));
+            this.reloadCategories()
+        },
+        reloadCategories() {
+            fetch("/api/get_categories.php")
+            .then((res) => res.json())
+            .then((data) => (this.categories = data))
+            .catch((error) => console.log(error.message));
+        }
+    }
 }
 </script>
 
